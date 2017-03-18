@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<MainTabDefs>
+
+  <MainTabDef>
+    <defName>BulkDesignator</defName>
+    <label>BulkDesignator</label>
+    <description>Provides some functions for bulk manipulation of designators.</description>
+    <windowClass>BulkDesignator.MainTabWindow_BulkDesignator</windowClass>
+    <order>996</order>
+    <!--<defaultToggleKey>F1</defaultToggleKey>-->
+  </MainTabDef>
+  
+</MainTabDefs>
