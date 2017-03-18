@@ -49,21 +49,34 @@ namespace BulkDesignator
                         buttonLabel = "Cancel All Hunting";
                         if (Widgets.ButtonText(nextButton, buttonLabel))
                         {
+                            List<Designation> toDelete = new List<Designation>();
                             foreach (Designation d in Find.VisibleMap.designationManager.DesignationsOfDef(DesignationDefOf.Hunt))
+                            {
+                                toDelete.Add(d);
+                                //d.Delete();
+                            }
+                            foreach (Designation d in toDelete)
                             {
                                 d.Delete();
                             }
                         }
                         break;
                     case 1:
-                        buttonLabel = "Cancel All Cut Plant";
+                        buttonLabel = "Cancel All Cut/Harvest";
                         if (Widgets.ButtonText(nextButton, buttonLabel))
                         {
+                            List<Designation> toDelete = new List<Designation>();
                             foreach (Designation d in Find.VisibleMap.designationManager.DesignationsOfDef(DesignationDefOf.CutPlant))
                             {
-                                d.Delete();
+                                toDelete.Add(d);
+                                //d.Delete();
                             }
                             foreach (Designation d in Find.VisibleMap.designationManager.DesignationsOfDef(DesignationDefOf.HarvestPlant))
+                            {
+                                toDelete.Add(d);
+                                //d.Delete();
+                            }
+                            foreach (Designation d in toDelete)
                             {
                                 d.Delete();
                             }
