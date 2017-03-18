@@ -63,6 +63,10 @@ namespace BulkDesignator
                             {
                                 d.Delete();
                             }
+                            foreach (Designation d in Find.VisibleMap.designationManager.DesignationsOfDef(DesignationDefOf.HarvestPlant))
+                            {
+                                d.Delete();
+                            }
                         }
                         break;
                     case 2:
