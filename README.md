@@ -27,8 +27,8 @@ My own use case is that I temporarily want to stop the Colony Manager job, reset
 
 Biggest examples:
 
-Clear all other Hunting jobs so they focus on the Alphabeavers.
-Clear all the Chop Wood jobs so they focus on Harvest Berry Bushes, or vice-versa.
+* Clear all other Hunting jobs so they focus on the Alphabeavers.
+* Clear all the Chop Wood jobs so they focus on Harvest Berry Bushes, or vice-versa.
 
 # Specific Additional Features
 
