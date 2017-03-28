@@ -34,9 +34,10 @@ namespace BulkDesignator
 
         public override void DoWindowContents(Rect canvas)
         {
+            Text.Font = GameFont.Small;
             base.DoWindowContents(canvas);
 
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i <= 2; i++)
             {
                 Rect nextButton = new Rect(canvas);
                 nextButton.y = i * (BUTTON_HEIGHT + BUTTON_SPACE);
@@ -83,13 +84,22 @@ namespace BulkDesignator
                         }
                         break;
                     case 2:
-                        buttonLabel = "Current Colonist Shot Finished is: ";
-                        /* TODO: Implement
+                        buttonLabel = "Operate All Mechanoids";
                         if (Widgets.ButtonText(nextButton, buttonLabel))
                         {
-                            component.colonistShotFinished = !curColonistShotFinished;
+                            List<Pawn> mechsToOperate = new List<Pawn>();
+                            foreach (Pawn p in Find.VisibleMap.mapPawns.AllPawnsSpawned)
+                            {
+                                if (p.ToString().Contains("Mechanoid") && p.Downed)
+                                {
+                                    Log.Message("P: " + p.ToString());
+                                    foreach (Bill b in p.health.surgeryBills.Bills)
+                                    {
+                                        Log.Message("B: " + b.Label);
+                                    }
+                                }
+                            }
                         }
-                        */
                         break;
                     case 3:
                         buttonLabel = "Current Enemy Shot Begun is: ";
