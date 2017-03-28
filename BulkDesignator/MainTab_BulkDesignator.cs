@@ -87,15 +87,70 @@ namespace BulkDesignator
                         buttonLabel = "Operate All Mechanoids";
                         if (Widgets.ButtonText(nextButton, buttonLabel))
                         {
-                            List<Pawn> mechsToOperate = new List<Pawn>();
                             foreach (Pawn p in Find.VisibleMap.mapPawns.AllPawnsSpawned)
                             {
                                 if (p.ToString().Contains("Mechanoid") && p.Downed)
                                 {
-                                    Log.Message("P: " + p.ToString());
-                                    foreach (Bill b in p.health.surgeryBills.Bills)
+                                    foreach (RecipeDef recipe in p.def.AllRecipes)
                                     {
-                                        Log.Message("B: " + b.Label);
+                                        if (recipe.AvailableNow)
+                                        {
+                                            IEnumerable<ThingDef> enumerable = recipe.PotentiallyMissingIngredients(null, p.Map);
+                                            if (!enumerable.Any((ThingDef x) => x.isBodyPartOrImplant))
+                                            {
+                                                if (!enumerable.Any((ThingDef x) => x.IsDrug))
+                                                {
+                                                    if (recipe.targetsBodyPart)
+                                                    {
+                                                        foreach (BodyPartRecord bodyPart in recipe.Worker.GetPartsToApplyOn(p, recipe))
+                                                        {
+                                                            bool alreadyExists = false;
+                                                            foreach (Bill b in p.BillStack.Bills)
+                                                            {
+                                                                if (b is Bill_Medical)
+                                                                {
+                                                                    Bill_Medical existing = (Bill_Medical)b;
+                                                                    if (existing.recipe.label == recipe.label)
+                                                                    {
+                                                                        if (existing.Part == bodyPart)
+                                                                        {
+                                                                            alreadyExists = true;
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                            if (!alreadyExists)
+                                                            {
+                                                                Bill_Medical bm = new Bill_Medical(recipe);
+                                                                p.BillStack.AddBill(bm);
+                                                                bm.Part = bodyPart;
+                                                                p.BillStack.Reorder(bm, 0);
+                                                            }
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        bool alreadyExists = false;
+                                                        foreach (Bill b in p.BillStack.Bills)
+                                                        {
+                                                            if (b is Bill_Medical)
+                                                            {
+                                                                Bill_Medical existing = (Bill_Medical)b;
+                                                                if (existing.recipe.label == recipe.label)
+                                                                {
+                                                                    alreadyExists = true;
+                                                                }
+                                                            }
+                                                        }
+                                                        if (!alreadyExists)
+                                                        {
+                                                            Bill_Medical bm = new Bill_Medical(recipe);
+                                                            p.BillStack.AddBill(bm);
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }
