@@ -34,9 +34,9 @@ namespace BulkDesignator
 
         public override void DoWindowContents(Rect canvas)
         {
-            Text.Font = GameFont.Small;
             base.DoWindowContents(canvas);
 
+            Text.Font = GameFont.Small;
             for (int i = 0; i <= 2; i++)
             {
                 Rect nextButton = new Rect(canvas);
