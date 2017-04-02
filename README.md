@@ -16,16 +16,19 @@ You'll add the mod. You'll enable the mod.
 
 Within the game, it adds a MainTab, probably in the far-bottom-right-corner, labeled "BulkDesignator".
 
-This MainTab will provide one-click buttons for each of the following functions
+This MainTab will provide one-click buttons for each of the following functions:
 
-* Completely strip the map of all Orders:"Cut Plants" and "Harvest".
-* Completely strip the map of all Orders:"Hunt".
+* "Cancel All Hunting" - Completely strip the map of all Orders:"Hunt".
+* "Cancel All Cut/Harvest" - Completely strip the map of all Orders:"Cut Plants" and "Harvest".
+* "Operate All Mechanoids" - Designates all Operations for all Downed Mechanoids.
 
-This is intended primarily as a complement to something like [Fluffy's Colony Manager](https://github.com/FluffierThanThou/ColonyManager) which typically automatically rebuilds these Orders.
+The usage of the latter should be obvious, conveniently removing all arms from all scythers, then shutting down everything, in one click.
+
+The first two are intended primarily as a complement to something like [Fluffy's Colony Manager](https://github.com/FluffierThanThou/ColonyManager) which typically automatically rebuilds these Orders.
 
 My own use case is that I temporarily want to stop the Colony Manager job, reset all the Orders on the map, get them to do something very specific, and then, when I'm done, enable the Colony Manager job again.
 
-Biggest examples:
+Biggest examples of this are:
 
 * Clear all other Hunting jobs so they focus on the Alphabeavers.
 * Clear all the Chop Wood jobs so they focus on Harvest Berry Bushes, or vice-versa.
