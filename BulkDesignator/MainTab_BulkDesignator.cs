@@ -36,7 +36,8 @@ namespace BulkDesignator
         {
             base.DoWindowContents(canvas);
 
-            for (int i = 0; i < 4; i++)
+            Text.Font = GameFont.Small;
+            for (int i = 0; i <= 2; i++)
             {
                 Rect nextButton = new Rect(canvas);
                 nextButton.y = i * (BUTTON_HEIGHT + BUTTON_SPACE);
@@ -83,13 +84,77 @@ namespace BulkDesignator
                         }
                         break;
                     case 2:
-                        buttonLabel = "Current Colonist Shot Finished is: ";
-                        /* TODO: Implement
+                        buttonLabel = "Operate All Mechanoids";
                         if (Widgets.ButtonText(nextButton, buttonLabel))
                         {
-                            component.colonistShotFinished = !curColonistShotFinished;
+                            foreach (Pawn p in Find.VisibleMap.mapPawns.AllPawnsSpawned)
+                            {
+                                if (p.ToString().Contains("Mechanoid") && p.Downed)
+                                {
+                                    foreach (RecipeDef recipe in p.def.AllRecipes)
+                                    {
+                                        if (recipe.AvailableNow)
+                                        {
+                                            IEnumerable<ThingDef> enumerable = recipe.PotentiallyMissingIngredients(null, p.Map);
+                                            if (!enumerable.Any((ThingDef x) => x.isBodyPartOrImplant))
+                                            {
+                                                if (!enumerable.Any((ThingDef x) => x.IsDrug))
+                                                {
+                                                    if (recipe.targetsBodyPart)
+                                                    {
+                                                        foreach (BodyPartRecord bodyPart in recipe.Worker.GetPartsToApplyOn(p, recipe))
+                                                        {
+                                                            bool alreadyExists = false;
+                                                            foreach (Bill b in p.BillStack.Bills)
+                                                            {
+                                                                if (b is Bill_Medical)
+                                                                {
+                                                                    Bill_Medical existing = (Bill_Medical)b;
+                                                                    if (existing.recipe.label == recipe.label)
+                                                                    {
+                                                                        if (existing.Part == bodyPart)
+                                                                        {
+                                                                            alreadyExists = true;
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                            if (!alreadyExists)
+                                                            {
+                                                                Bill_Medical bm = new Bill_Medical(recipe);
+                                                                p.BillStack.AddBill(bm);
+                                                                bm.Part = bodyPart;
+                                                                p.BillStack.Reorder(bm, 0);
+                                                            }
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        bool alreadyExists = false;
+                                                        foreach (Bill b in p.BillStack.Bills)
+                                                        {
+                                                            if (b is Bill_Medical)
+                                                            {
+                                                                Bill_Medical existing = (Bill_Medical)b;
+                                                                if (existing.recipe.label == recipe.label)
+                                                                {
+                                                                    alreadyExists = true;
+                                                                }
+                                                            }
+                                                        }
+                                                        if (!alreadyExists)
+                                                        {
+                                                            Bill_Medical bm = new Bill_Medical(recipe);
+                                                            p.BillStack.AddBill(bm);
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         }
-                        */
                         break;
                     case 3:
                         buttonLabel = "Current Enemy Shot Begun is: ";
