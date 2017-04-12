@@ -2,6 +2,8 @@
 
 This is a mod for the game RimWorld by Ludeon Studios.
 
+It provides some functions for bulk manipulation of designators, such as Cut Plants & Hunt, and bulk Medical Operations across multiple humanoids and mechanoids.
+
 # Table of Contents
 
 * [Introduction and Explanation](#introduction-and-explanation)
