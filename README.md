@@ -34,7 +34,7 @@ Use this for things like: "Forget about Chop Wood, I need you to Harvest Berry B
 
 Click this button, and a popup menu will check every Downed Mechanoid on the map, identify every available Operation, and, in a single click, will apply that Operation to every Downed Mechanoid.
 
-"Shut Down" appears twice, once for Centipedes and once for Scythers. You can't tell which is which. Sorry. I don't think it is a big deal. Click both. Tracked in this issue: maarxx/BulkDesignator/issues/12
+"Shut Down" appears twice, once for Centipedes and once for Scythers. You can't tell which is which. Sorry. I don't think it is a big deal. Click both. Tracked in this issue: maarxx/BulkDesignator#12
 
 #### "Bulk Operate Humanoids"
 
