@@ -34,8 +34,6 @@ Use this for things like: "Forget about Chop Wood, I need you to Harvest Berry B
 
 Click this button, and a popup menu will check every Downed Mechanoid on the map, identify every available Operation, and, in a single click, will apply that Operation to every Downed Mechanoid.
 
-"Shut Down" appears twice, once for Centipedes and once for Scythers. You can't tell which is which. Sorry. I don't think it is a big deal. Click both. Maybe I'll fix it. [Tracked in this issue.](https://github.com/maarxx/BulkDesignator/issues/12) Leave a comment there, let me know if you care.
-
 #### "Bulk Operate Humanoids"
 
 Select multiple Pawns (Colonists or Prisoners), then click this button.
