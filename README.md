@@ -18,20 +18,31 @@ Within the game, it adds a MainTab, probably in the far-bottom-right-corner, lab
 
 This MainTab will provide one-click buttons for each of the following functions:
 
-* "Cancel All Hunting" - Completely strip the map of all Orders:"Hunt".
-* "Cancel All Cut/Harvest" - Completely strip the map of all Orders:"Cut Plants" and "Harvest".
-* "Operate All Mechanoids" - Designates all Operations for all Downed Mechanoids.
+#### "Cancel All Hunting"
 
-The usage of the latter should be obvious, conveniently removing all arms from all scythers, then shutting down everything, in one click.
+In a single click, this option will completely strip the map of all Orders:"Hunt".
 
-The first two are intended primarily as a complement to something like [Fluffy's Colony Manager](https://github.com/FluffierThanThou/ColonyManager) which typically automatically rebuilds these Orders.
+Use this for things like: "Okay, forget everything else I said to hunt, focus on the Alphabeavers."
 
-My own use case is that I temporarily want to stop the Colony Manager job, reset all the Orders on the map, get them to do something very specific, and then, when I'm done, enable the Colony Manager job again.
+#### "Cancel All Cut/Harvest"
 
-Biggest examples of this are:
+In a single click, this option will completely strip the map of all Orders:"Cut Plants" and "Harvest".
 
-* Clear all other Hunting jobs so they focus on the Alphabeavers.
-* Clear all the Chop Wood jobs so they focus on Harvest Berry Bushes, or vice-versa.
+Use this for things like: "Forget about Chop Wood, I need you to Harvest Berry Bushes" or vice versa.
+
+#### "Operate All Mechanoids"
+
+Click this button, and a popup menu will check every Downed Mechanoid on the map, identify every available Operation, and, in a single click, will apply that Operation to every Downed Mechanoid.
+
+"Shut Down" appears twice, once for Centipedes and once for Scythers. You can't tell which is which. Sorry. I don't think it is a big deal. Click both. Tracked in this issue: maarxx/BulkDesignator/issues/12
+
+#### "Bulk Operate Humanoids"
+
+Select multiple Pawns (Colonists or Prisoners), then click this button.
+
+It will identify every Operation that can be applied to ANY of the Pawns, and present all those choices in a list.
+
+Click an option, and it will apply that Operation to EVERY SELECTED PAWN WHO CAN RECEIVE IT.
 
 # Specific Additional Features
 
