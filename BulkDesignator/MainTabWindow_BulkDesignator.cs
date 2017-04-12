@@ -249,7 +249,10 @@ namespace BulkDesignator
                             {
                                 menuAvailable.Add(new FloatMenuOption(so.text, delegate { addSurgeryIfNotAlready(mechanoids, so); }));
                             }
-                            Find.WindowStack.Add(new FloatMenu(menuAvailable));
+                            if (menuAvailable.Count > 0)
+                            {
+                                Find.WindowStack.Add(new FloatMenu(menuAvailable));
+                            }
                         }
                         break;
                     case 3:
@@ -270,7 +273,10 @@ namespace BulkDesignator
                             {
                                 menuAvailable.Add(new FloatMenuOption(so.text, delegate { addSurgeryIfNotAlready(pawns, so); }));
                             }
-                            Find.WindowStack.Add(new FloatMenu(menuAvailable));
+                            if (menuAvailable.Count > 0)
+                            {
+                                Find.WindowStack.Add(new FloatMenu(menuAvailable));
+                            }
                         }
                         break;
                 }
