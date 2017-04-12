@@ -49,7 +49,11 @@ namespace BulkDesignator
             string text = recipe.Worker.GetLabelWhenUsedOn(pawn, part);
             if (part != null && !recipe.hideBodyPartNames)
             {
-                text = text + " (" + part.def.label + ")";
+                text += " (" + part.def.label + ")";
+            }
+            if (text == "Shut down")
+            {
+                text += " (" + pawn.def.label + ")";
             }
             return text;
         }
