@@ -203,7 +203,7 @@ namespace BulkDesignator
                         if (Widgets.ButtonText(nextButton, buttonLabel))
                         {
                             List<Designation> toDelete = new List<Designation>();
-                            foreach (Designation d in Find.VisibleMap.designationManager.DesignationsOfDef(DesignationDefOf.Hunt))
+                            foreach (Designation d in Find.CurrentMap.designationManager.SpawnedDesignationsOfDef(DesignationDefOf.Hunt))
                             {
                                 toDelete.Add(d);
                                 //d.Delete();
@@ -219,12 +219,12 @@ namespace BulkDesignator
                         if (Widgets.ButtonText(nextButton, buttonLabel))
                         {
                             List<Designation> toDelete = new List<Designation>();
-                            foreach (Designation d in Find.VisibleMap.designationManager.DesignationsOfDef(DesignationDefOf.CutPlant))
+                            foreach (Designation d in Find.CurrentMap.designationManager.SpawnedDesignationsOfDef(DesignationDefOf.CutPlant))
                             {
                                 toDelete.Add(d);
                                 //d.Delete();
                             }
-                            foreach (Designation d in Find.VisibleMap.designationManager.DesignationsOfDef(DesignationDefOf.HarvestPlant))
+                            foreach (Designation d in Find.CurrentMap.designationManager.SpawnedDesignationsOfDef(DesignationDefOf.HarvestPlant))
                             {
                                 toDelete.Add(d);
                                 //d.Delete();
@@ -240,7 +240,7 @@ namespace BulkDesignator
                         if (Widgets.ButtonText(nextButton, buttonLabel))
                         {
                             List<Pawn> mechanoids = new List<Pawn>();
-                            foreach (Pawn p in Find.VisibleMap.mapPawns.AllPawnsSpawned)
+                            foreach (Pawn p in Find.CurrentMap.mapPawns.AllPawnsSpawned)
                             {
                                 if (p.ToString().Contains("Mechanoid") && p.Downed)
                                 {

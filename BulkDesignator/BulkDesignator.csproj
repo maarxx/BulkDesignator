@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BulkDesignator</RootNamespace>
     <AssemblyName>BulkDesignator</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,10 +30,11 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -42,7 +44,11 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="UnityEngine">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin_Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>..\..\..\RimWorldWin64_Data\Managed\UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
