@@ -4,6 +4,10 @@ This is a mod for the game RimWorld by Ludeon Studios.
 
 It provides some functions for bulk manipulation of designators, such as Cut Plants & Hunt, and bulk Medical Operations across multiple humanoids and mechanoids.
 
+# DEPRECATED
+
+Coming back to RimWorld in 1.2, this doesn't seem necessary anymore. Even in vanilla, you can right-click on your Architect -> Orders -> Cut Plants, and click Cancel All.
+
 # Table of Contents
 
 * [Introduction and Explanation](#introduction-and-explanation)
