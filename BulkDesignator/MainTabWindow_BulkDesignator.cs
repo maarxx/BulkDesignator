@@ -44,6 +44,7 @@ namespace BulkDesignator
             }
         }
 
+        //all from HealthCardUtility.DrawMedOperationsTab
         public string generateSurgeryText(Pawn pawn, RecipeDef recipe, BodyPartRecord part)
         {
             string text = recipe.Worker.GetLabelWhenUsedOn(pawn, part);
