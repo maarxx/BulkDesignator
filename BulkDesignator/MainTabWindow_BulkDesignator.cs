@@ -47,15 +47,12 @@ namespace BulkDesignator
         //all from HealthCardUtility.DrawMedOperationsTab
         public string generateSurgeryText(Pawn pawn, RecipeDef recipe, BodyPartRecord part)
         {
-            string text = recipe.Worker.GetLabelWhenUsedOn(pawn, part);
+            string text = recipe.Worker.GetLabelWhenUsedOn(pawn, part).CapitalizeFirst();
             if (part != null && !recipe.hideBodyPartNames)
             {
-                text += " (" + part.def.label + ")";
+                text = text + " (" + part.Label + ")";
             }
-            if (text == "Shut down")
-            {
-                text += " (" + pawn.def.label + ")";
-            }
+            //text.Replace(" (teetotaler will be unhappy)", "");
             return text;
         }
 
@@ -80,39 +77,31 @@ namespace BulkDesignator
 
         public bool canPawnGetSurgery(Pawn pawn, SurgeryOption surgery)
         {
-            foreach (RecipeDef current in pawn.def.AllRecipes)
+            foreach (RecipeDef allRecipe in pawn.def.AllRecipes)
             {
-                if (current.AvailableNow)
+                if (allRecipe.AvailableNow && allRecipe.AvailableOnNow(pawn))
                 {
-                    IEnumerable<ThingDef> enumerable = current.PotentiallyMissingIngredients(null, pawn.Map);
-                    if (!enumerable.Any((ThingDef x) => x.isTechHediff) && !enumerable.Any((ThingDef x) => x.IsDrug) && (!enumerable.Any() || !current.dontShowIfAnyIngredientMissing))
+                    IEnumerable<ThingDef> enumerable = allRecipe.PotentiallyMissingIngredients(null, pawn.Map);
+                    if (!enumerable.Any((ThingDef x) => x.isTechHediff) && !enumerable.Any((ThingDef x) => x.IsDrug) && (!enumerable.Any() || !allRecipe.dontShowIfAnyIngredientMissing))
                     {
-                        if (current.targetsBodyPart)
+                        if (allRecipe.targetsBodyPart)
                         {
-                            foreach (BodyPartRecord current2 in current.Worker.GetPartsToApplyOn(pawn, current))
+                            foreach (BodyPartRecord item in allRecipe.Worker.GetPartsToApplyOn(pawn, allRecipe))
                             {
-                                //list.Add(HealthCardUtility.GenerateSurgeryOption(pawn, pawn, current, enumerable, current2));
                                 SurgeryOption temp = new SurgeryOption();
-                                temp.text = generateSurgeryText(pawn, current, current2);
-                                temp.recipe = current;
-                                temp.part = current2;
-                                if (surgery.equals(temp))
-                                {
-                                    return true;
-                                }
+                                temp.text = generateSurgeryText(pawn, allRecipe, item);
+                                temp.recipe = allRecipe;
+                                temp.part = item;
+                                if (temp.equals(surgery)) { return true; }
                             }
                         }
                         else
                         {
-                            //list.Add(HealthCardUtility.GenerateSurgeryOption(pawn, pawn, current, enumerable, null));
                             SurgeryOption temp = new SurgeryOption();
-                            temp.text = generateSurgeryText(pawn, current, null);
-                            temp.recipe = current;
+                            temp.text = generateSurgeryText(pawn, allRecipe, null);
+                            temp.recipe = allRecipe;
                             temp.part = null;
-                            if (surgery.equals(temp))
-                            {
-                                return true;
-                            }
+                            if (temp.equals(surgery)) { return true; }
                         }
                     }
                 }
@@ -125,39 +114,31 @@ namespace BulkDesignator
             HashSet<SurgeryOption> set = new HashSet<SurgeryOption>();
             foreach (Pawn pawn in pawns)
             {
-                foreach (RecipeDef current in pawn.def.AllRecipes)
+                foreach (RecipeDef allRecipe in pawn.def.AllRecipes)
                 {
-                    if (current.AvailableNow)
+                    if (allRecipe.AvailableNow && allRecipe.AvailableOnNow(pawn))
                     {
-                        IEnumerable<ThingDef> enumerable = current.PotentiallyMissingIngredients(null, pawn.Map);
-                        if (!enumerable.Any((ThingDef x) => x.isTechHediff) && !enumerable.Any((ThingDef x) => x.IsDrug) && (!enumerable.Any() || !current.dontShowIfAnyIngredientMissing))
+                        IEnumerable<ThingDef> enumerable = allRecipe.PotentiallyMissingIngredients(null, pawn.Map);
+                        if (!enumerable.Any((ThingDef x) => x.isTechHediff) && !enumerable.Any((ThingDef x) => x.IsDrug) && (!enumerable.Any() || !allRecipe.dontShowIfAnyIngredientMissing))
                         {
-                            if (current.targetsBodyPart)
+                            if (allRecipe.targetsBodyPart)
                             {
-                                foreach (BodyPartRecord current2 in current.Worker.GetPartsToApplyOn(pawn, current))
+                                foreach (BodyPartRecord item in allRecipe.Worker.GetPartsToApplyOn(pawn, allRecipe))
                                 {
-                                    //list.Add(HealthCardUtility.GenerateSurgeryOption(pawn, pawn, current, enumerable, current2));
                                     SurgeryOption temp = new SurgeryOption();
-                                    temp.text = generateSurgeryText(pawn, current, current2);
-                                    temp.recipe = current;
-                                    temp.part = current2;
-                                    if (!doesPawnAlreadyHaveSurgery(pawn, temp))
-                                    {
-                                        set.Add(temp);
-                                    }
+                                    temp.text = generateSurgeryText(pawn, allRecipe, item);
+                                    temp.recipe = allRecipe;
+                                    temp.part = item;
+                                    if (!set.Contains(temp)) { set.Add(temp); }
                                 }
                             }
                             else
                             {
-                                //list.Add(HealthCardUtility.GenerateSurgeryOption(pawn, pawn, current, enumerable, null));
                                 SurgeryOption temp = new SurgeryOption();
-                                temp.text = generateSurgeryText(pawn, current, null);
-                                temp.recipe = current;
+                                temp.text = generateSurgeryText(pawn, allRecipe, null);
+                                temp.recipe = allRecipe;
                                 temp.part = null;
-                                if (!doesPawnAlreadyHaveSurgery(pawn, temp))
-                                {
-                                    set.Add(temp);
-                                }
+                                if (!set.Contains(temp)) { set.Add(temp); }
                             }
                         }
                     }
