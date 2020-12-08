@@ -3,6 +3,9 @@
   <name>BulkDesignator</name>
   <author>Maarx</author>
   <url>https://github.com/maarxx/BulkDesignator/</url>
-  <targetVersion>0.16.1393</targetVersion>
   <description>Provides some functions for bulk manipulation of designators, such as Cut Plants and Hunt, and bulk Medical Operations across multiple humanoids and mechanoids.</description>
+  <packageId>maarx.bulkdesignator</packageId>
+  <supportedVersions>
+    <li>1.0</li>
+  </supportedVersions>
 </ModMetaData>
