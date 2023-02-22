@@ -49,25 +49,6 @@ namespace BulkDesignator
             buttons.Add(new ModButton_Text(
                 delegate
                 {
-                    return "Cancel All Hunting";
-                },
-                delegate {
-                    Find.CurrentMap.designationManager.RemoveAllDesignationsOfDef(DesignationDefOf.Hunt);
-                }
-            ));
-            buttons.Add(new ModButton_Text(
-                delegate
-                {
-                    return "Cancel All Cut/Harvest";
-                },
-                delegate {
-                    Find.CurrentMap.designationManager.RemoveAllDesignationsOfDef(DesignationDefOf.CutPlant);
-                    Find.CurrentMap.designationManager.RemoveAllDesignationsOfDef(DesignationDefOf.HarvestPlant);
-                }
-            ));
-            buttons.Add(new ModButton_Text(
-                delegate
-                {
                     return "Cancel All Smooth Wall";
                 },
                 delegate {
