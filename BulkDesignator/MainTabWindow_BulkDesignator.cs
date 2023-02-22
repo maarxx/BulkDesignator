@@ -153,16 +153,16 @@ namespace BulkDesignator
             {
                 if (canPawnGetSurgery(pawn, surgery) && !doesPawnAlreadyHaveSurgery(pawn, surgery))
                 {
-                    Bill_Medical bm = new Bill_Medical(surgery.recipe);
-                    pawn.BillStack.AddBill(bm);
-                    bm.Part = surgery.part;
+                    //Bill_Medical bm = new Bill_Medical(surgery.recipe);
+                    //pawn.BillStack.AddBill(bm);
+                    //bm.Part = surgery.part;
                 }
             }
         }
 
         public override void DoWindowContents(Rect canvas)
         {
-            base.DoWindowContents(canvas);
+            //base.DoWindowContents(canvas);
 
             Text.Font = GameFont.Small;
             for (int i = 0; i <= 3; i++)
