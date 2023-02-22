@@ -3,10 +3,27 @@
   <name>BulkDesignator</name>
   <author>Maarx</author>
   <url>https://github.com/maarxx/BulkDesignator/</url>
-  <description>Provides some functions for bulk manipulation of designators, such as Cut Plants and Hunt, and bulk Medical Operations across multiple humanoids and mechanoids.</description>
+  <description>Provides some functions for bulk manipulation of designators, namely bulk cancellation.</description>
   <packageId>maarx.bulkdesignator</packageId>
   <supportedVersions>
     <li>1.0</li>
     <li>1.4</li>
   </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+    </li>
+    <li>
+      <packageId>maarx.modbuttons</packageId>
+      <displayName>ModButtons</displayName>
+      <downloadUrl>https://github.com/maarxx/ModButtons/</downloadUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>maarx.modbuttons</li>
+  </loadAfter>
 </ModMetaData>
