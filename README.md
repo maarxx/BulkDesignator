@@ -2,7 +2,7 @@
 
 This is a mod for the game RimWorld by Ludeon Studios.
 
-The mod provides some buttons for missing functionality to bulk manage designators.
+The mod provides some buttons for missing functionality to bulk manage designators (right now, namely, bulk cancellation).
 
 # Table of Contents
 
@@ -10,7 +10,7 @@ The mod provides some buttons for missing functionality to bulk manage designato
 
 # Introduction
 
-The mod provides some buttons for missing functionality to bulk manage designators.
+The mod provides some buttons for missing functionality to bulk manage designators (right now, namely, bulk cancellation).
 
 The dependency "ModButtons" will add a similarly-named tab in the bottom-right corner, with some control buttons.
 
