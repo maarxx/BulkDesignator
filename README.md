@@ -16,4 +16,6 @@ The dependency "ModButtons" will add a similarly-named tab in the bottom-right c
 
 This MainTab will provide one-click buttons for each of the following functions:
 
-# TODO
+* Button to Cancel All Designations for: "Smooth Walls"
+* Button to Cancel All Designations for: "Smooth Floors"
+* Button to Cancel All Designations for: "Remove Floors"
