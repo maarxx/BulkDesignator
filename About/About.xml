@@ -3,7 +3,9 @@
   <name>BulkDesignator</name>
   <author>Maarx</author>
   <url>https://github.com/maarxx/BulkDesignator/</url>
-  <description>Provides some functions for bulk manipulation of designators, namely bulk cancellation.</description>
+  <description>
+The mod provides some buttons for missing functionality to bulk manage designators (right now, namely, bulk cancellation).
+  </description>
   <packageId>maarx.bulkdesignator</packageId>
   <supportedVersions>
     <li>1.0</li>
