@@ -24,5 +24,7 @@ This MainTab will provide one-click buttons for each of the following functions:
 # Links
 
 We're on Steam: https://steamcommunity.com/sharedfiles/filedetails/?id=2967716756
+
 We're on GitHub: https://github.com/maarxx/BulkDesignator
+
 For reporting bugs or requesting features, Github Issues are better than Steam Workshop Comments.
