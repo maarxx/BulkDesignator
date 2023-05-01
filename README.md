@@ -7,6 +7,7 @@ The mod provides some buttons for missing functionality to bulk manage designato
 # Table of Contents
 
 * [Introduction](#introduction)
+* [Links](#links)
 
 # Introduction
 
@@ -19,3 +20,11 @@ This MainTab will provide one-click buttons for each of the following functions:
 * Button to Cancel All Designations for: "Smooth Walls"
 * Button to Cancel All Designations for: "Smooth Floors"
 * Button to Cancel All Designations for: "Remove Floors"
+
+# Links
+
+We're on Steam: https://steamcommunity.com/sharedfiles/filedetails/?id=2967716756
+
+We're on GitHub: https://github.com/maarxx/BulkDesignator
+
+For reporting bugs or requesting features, Github Issues are better than Steam Workshop Comments.
